@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Service Status Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <h1>Service Status Tracker</h1>
+      <p>Cek status perbaikan perangkat dengan nomor transaksi. Ini demo: data tersimpan di browser.</p>
+      <nav class="tabs" role="tablist">
+        <button class="tab active" data-tab="customer" role="tab">Cek Status</button>
+        <button class="tab" data-tab="admin" role="tab">Panel Admin</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="tab-customer" class="panel">
+      <h2>Cek Status Perbaikan</h2>
+      <form id="lookupForm" class="inline-form">
+        <input id="codeInput" placeholder="Masukkan nomor transaksi, contoh: SRV-2026-0001" required autocomplete="off">
+        <button class="btn" type="submit">Cek</button>
+      </form>
+      <p class="hint">Coba nomor contoh: <code>SRV-2026-0001</code>, <code>SRV-2026-0002</code>, atau <code>SRV-2026-0003</code></p>
+      <div id="result" aria-live="polite"></div>
+    </section>
+
+    <section id="tab-admin" class="panel" hidden>
+      <h2>Tambah Tiket Servis</h2>
+      <form id="ticketForm" class="form">
+        <label>Nama pelanggan<input name="customer" required maxlength="60"></label>
+        <label>Perangkat<input name="device" required maxlength="60" placeholder="contoh: Laptop Asus A409"></label>
+        <label>Keluhan<input name="issue" required maxlength="120" placeholder="contoh: Layar bergaris"></label>
+        <button class="btn" type="submit">Buat Tiket</button>
+      </form>
+
+      <h2 class="spaced">Daftar Tiket</h2>
+      <div id="ticketList"></div>
+      <button class="btn ghost danger" id="resetBtn" type="button">Reset Data Contoh</button>
+    </section>
+  </main>
+
+  <footer class="foot wrap">Proyek portofolio: HTML, CSS, dan JavaScript tanpa framework. Terinspirasi fitur cek status pada skripsi saya.</footer>
+  <script src="script.js"></script>
+</body>
+</html>
